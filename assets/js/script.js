@@ -36,9 +36,13 @@ function displayErrors(data) {
         for (let error of data.error_list) {
             results += `<div>At line ${error.line}, `;
             results += `column ${error.col}</div>`;
-            resukts += `<div>${error.error}</div>`;
+            results += `<div>${error.error}</div>`;
         }
     }
+
+    document.getElementById("resultsModalTitle").innerText = heading;
+    document.getElementById("results-content").innerHTML = results;
+    resultsModal.show();
 }
 
 async function getStatus(e) {
